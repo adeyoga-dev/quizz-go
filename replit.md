@@ -16,6 +16,9 @@ To help beginners learn Go programming through structured lessons with practical
 - Created complete learning platform with 4 comprehensive lessons
 - Implemented responsive UI with lesson navigation
 - Added code examples for all major Go concepts
+- Added interactive quiz feature with 10 multiple-choice questions
+- Implemented percentage-based scoring system with detailed results
+- Created quiz navigation button in sidebar
 
 ## Project Architecture
 
@@ -40,6 +43,9 @@ To help beginners learn Go programming through structured lessons with practical
 3. **Keyboard Controls**: Arrow keys for lesson navigation
 4. **Progress Tracking**: Visual progress indicator
 5. **Code Examples**: Syntax-highlighted code blocks for each topic
+6. **Quiz System**: 10 multiple-choice questions (A/B/C/D format) covering all lessons
+7. **Score Calculation**: Percentage-based scoring with detailed feedback
+8. **Results Display**: Shows correct answers and performance breakdown
 
 ### Lessons Content
 1. **Variables & Data Types**: Declaration methods, basic types, zero values
