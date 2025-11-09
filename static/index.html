@@ -1343,6 +1343,12 @@ func main() {
         }
 
         function showLesson(index) {
+            // Stop timer if quiz is active
+            if (quizSession.isActive) {
+                stopTimer();
+                quizSession.isActive = false;
+            }
+            
             // Hide quiz section
             document.getElementById('quiz-section').classList.remove('active');
             

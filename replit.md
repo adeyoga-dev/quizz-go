@@ -16,7 +16,14 @@ To help beginners learn Go programming through structured lessons with practical
 - Created complete learning platform with 4 comprehensive lessons
 - Implemented responsive UI with lesson navigation
 - Added code examples for all major Go concepts
-- Added interactive quiz feature with 10 multiple-choice questions
+- **Enhanced Quiz System**:
+  - Created 100-question bank covering all Go fundamentals
+  - Implemented Fisher-Yates shuffle algorithm for question randomization
+  - Each quiz session randomly selects 10 questions from the bank
+  - Added 30-second countdown timer with auto-submit functionality
+  - Visual timer display with pulsing animation when time is running low
+  - Dynamic question rendering from JavaScript objects
+  - Proper timer cleanup to prevent memory leaks
 - Implemented percentage-based scoring system with detailed results
 - Created quiz navigation button in sidebar
 
@@ -43,9 +50,16 @@ To help beginners learn Go programming through structured lessons with practical
 3. **Keyboard Controls**: Arrow keys for lesson navigation
 4. **Progress Tracking**: Visual progress indicator
 5. **Code Examples**: Syntax-highlighted code blocks for each topic
-6. **Quiz System**: 10 multiple-choice questions (A/B/C/D format) covering all lessons
+6. **Advanced Quiz System**:
+   - 100-question bank with comprehensive Go programming topics
+   - Randomized selection of 10 questions per session (Fisher-Yates shuffle)
+   - 30-second countdown timer with visual countdown display
+   - Auto-submit when timer expires
+   - Pulsing animation alert when 10 seconds remain
+   - Dynamic question rendering from JavaScript objects
+   - Multiple-choice format (A/B/C/D options)
 7. **Score Calculation**: Percentage-based scoring with detailed feedback
-8. **Results Display**: Shows correct answers and performance breakdown
+8. **Results Display**: Shows correct/incorrect answers and performance breakdown
 
 ### Lessons Content
 1. **Variables & Data Types**: Declaration methods, basic types, zero values
