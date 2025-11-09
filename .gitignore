@@ -19,3 +19,8 @@ go.work
 
 # Build output
 bin/
+
+# User-specific configuration files
+.config/
+.local/
+.replit
