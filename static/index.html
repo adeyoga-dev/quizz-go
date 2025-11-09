@@ -350,6 +350,11 @@
             transform: scale(1.05);
         }
 
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
         @media (max-width: 768px) {
             .content {
                 flex-direction: column;
@@ -1108,120 +1113,19 @@ func main() {
 
                 <!-- Quiz Section -->
                 <div id="quiz-section">
-                    <h2 style="color: #00ADD8; font-size: 2em; margin-bottom: 20px; border-bottom: 3px solid #00ADD8; padding-bottom: 10px;">🎯 Go Programming Quiz</h2>
-                    <p style="font-size: 1.1em; color: #555; margin-bottom: 30px;">Test your knowledge of Go fundamentals! Answer all questions and see your score.</p>
+                    <div id="quiz-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <div>
+                            <h2 style="color: #00ADD8; font-size: 2em; margin: 0; border-bottom: 3px solid #00ADD8; padding-bottom: 10px;">🎯 Go Programming Quiz</h2>
+                            <p style="font-size: 1.1em; color: #555; margin-top: 15px;">Test your knowledge of Go fundamentals! Answer all questions and see your score.</p>
+                        </div>
+                        <div id="timer-display" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px 30px; border-radius: 12px; font-size: 2em; font-weight: bold; min-width: 120px; text-align: center; box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);">
+                            30
+                        </div>
+                    </div>
                     
                     <form id="quiz-form">
-                        <!-- Question 1 -->
-                        <div class="quiz-question">
-                            <h3>1. Which of the following is the correct way to declare a variable with type inference in Go?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q1" value="A"> A) var name = "John"</label></li>
-                                <li><label><input type="radio" name="q1" value="B"> B) name := "John"</label></li>
-                                <li><label><input type="radio" name="q1" value="C"> C) Both A and B are correct</label></li>
-                                <li><label><input type="radio" name="q1" value="D"> D) None of the above</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 2 -->
-                        <div class="quiz-question">
-                            <h3>2. What is the zero value of a boolean variable in Go?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q2" value="A"> A) null</label></li>
-                                <li><label><input type="radio" name="q2" value="B"> B) 0</label></li>
-                                <li><label><input type="radio" name="q2" value="C"> C) false</label></li>
-                                <li><label><input type="radio" name="q2" value="D"> D) undefined</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 3 -->
-                        <div class="quiz-question">
-                            <h3>3. Which keyword is used to declare a constant in Go?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q3" value="A"> A) constant</label></li>
-                                <li><label><input type="radio" name="q3" value="B"> B) const</label></li>
-                                <li><label><input type="radio" name="q3" value="C"> C) final</label></li>
-                                <li><label><input type="radio" name="q3" value="D"> D) immutable</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 4 -->
-                        <div class="quiz-question">
-                            <h3>4. In Go, the switch statement requires a break statement to prevent fall-through.</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q4" value="A"> A) True</label></li>
-                                <li><label><input type="radio" name="q4" value="B"> B) False</label></li>
-                                <li><label><input type="radio" name="q4" value="C"> C) Only in some cases</label></li>
-                                <li><label><input type="radio" name="q4" value="D"> D) It depends on the compiler</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 5 -->
-                        <div class="quiz-question">
-                            <h3>5. What is the only looping construct available in Go?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q5" value="A"> A) while loop</label></li>
-                                <li><label><input type="radio" name="q5" value="B"> B) do-while loop</label></li>
-                                <li><label><input type="radio" name="q5" value="C"> C) for loop</label></li>
-                                <li><label><input type="radio" name="q5" value="D"> D) foreach loop</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 6 -->
-                        <div class="quiz-question">
-                            <h3>6. How many values can a Go function return?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q6" value="A"> A) Only one value</label></li>
-                                <li><label><input type="radio" name="q6" value="B"> B) Up to two values</label></li>
-                                <li><label><input type="radio" name="q6" value="C"> C) Multiple values (no limit)</label></li>
-                                <li><label><input type="radio" name="q6" value="D"> D) No return values allowed</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 7 -->
-                        <div class="quiz-question">
-                            <h3>7. What syntax is used to accept a variable number of arguments in a Go function?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q7" value="A"> A) *args</label></li>
-                                <li><label><input type="radio" name="q7" value="B"> B) ...args</label></li>
-                                <li><label><input type="radio" name="q7" value="C"> C) &args</label></li>
-                                <li><label><input type="radio" name="q7" value="D"> D) []args</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 8 -->
-                        <div class="quiz-question">
-                            <h3>8. What is a closure in Go?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q8" value="A"> A) A way to close files</label></li>
-                                <li><label><input type="radio" name="q8" value="B"> B) A function that references variables from outside its body</label></li>
-                                <li><label><input type="radio" name="q8" value="C"> C) A closed struct</label></li>
-                                <li><label><input type="radio" name="q8" value="D"> D) A terminated goroutine</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 9 -->
-                        <div class="quiz-question">
-                            <h3>9. In Go, does a type need to explicitly declare that it implements an interface?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q9" value="A"> A) Yes, using the "implements" keyword</label></li>
-                                <li><label><input type="radio" name="q9" value="B"> B) No, it's implicit - just implement the methods</label></li>
-                                <li><label><input type="radio" name="q9" value="C"> C) Yes, using the "interface" keyword</label></li>
-                                <li><label><input type="radio" name="q9" value="D"> D) Only for exported interfaces</label></li>
-                            </ul>
-                        </div>
-
-                        <!-- Question 10 -->
-                        <div class="quiz-question">
-                            <h3>10. Which receiver type should be used when a method needs to modify the struct?</h3>
-                            <ul class="quiz-options">
-                                <li><label><input type="radio" name="q10" value="A"> A) Value receiver</label></li>
-                                <li><label><input type="radio" name="q10" value="B"> B) Pointer receiver</label></li>
-                                <li><label><input type="radio" name="q10" value="C"> C) Reference receiver</label></li>
-                                <li><label><input type="radio" name="q10" value="D"> D) Interface receiver</label></li>
-                            </ul>
-                        </div>
-
+                        <!-- Questions will be dynamically generated here -->
+                        <div id="quiz-questions-container"></div>
                         <button type="button" class="submit-quiz-btn" onclick="submitQuiz()">Submit Quiz</button>
                     </form>
 
@@ -1248,31 +1152,195 @@ func main() {
         let currentLesson = 0;
         const totalLessons = 4;
 
-        const correctAnswers = {
-            q1: 'C',
-            q2: 'C',
-            q3: 'B',
-            q4: 'B',
-            q5: 'C',
-            q6: 'C',
-            q7: 'B',
-            q8: 'B',
-            q9: 'B',
-            q10: 'B'
+        // Quiz state management
+        let quizSession = {
+            questions: [],
+            timerId: null,
+            remainingSeconds: 30,
+            isActive: false
         };
 
-        const questionTexts = {
-            q1: 'Which of the following is the correct way to declare a variable with type inference in Go?',
-            q2: 'What is the zero value of a boolean variable in Go?',
-            q3: 'Which keyword is used to declare a constant in Go?',
-            q4: 'In Go, the switch statement requires a break statement to prevent fall-through.',
-            q5: 'What is the only looping construct available in Go?',
-            q6: 'How many values can a Go function return?',
-            q7: 'What syntax is used to accept a variable number of arguments in a Go function?',
-            q8: 'What is a closure in Go?',
-            q9: 'In Go, does a type need to explicitly declare that it implements an interface?',
-            q10: 'Which receiver type should be used when a method needs to modify the struct?'
-        };
+        // Question Bank (100 questions)
+        const questionBank = [
+            {id: 1, question: "Which of the following is the correct way to declare a variable with type inference in Go?", options: ["var name = \"John\"", "name := \"John\"", "Both A and B are correct", "None of the above"], answer: "C"},
+            {id: 2, question: "What is the zero value of a boolean variable in Go?", options: ["null", "0", "false", "undefined"], answer: "C"},
+            {id: 3, question: "Which keyword is used to declare a constant in Go?", options: ["constant", "const", "final", "immutable"], answer: "B"},
+            {id: 4, question: "In Go, the switch statement requires a break statement to prevent fall-through.", options: ["True", "False", "Only in some cases", "It depends on the compiler"], answer: "B"},
+            {id: 5, question: "What is the only looping construct available in Go?", options: ["while loop", "do-while loop", "for loop", "foreach loop"], answer: "C"},
+            {id: 6, question: "How many values can a Go function return?", options: ["Only one value", "Up to two values", "Multiple values (no limit)", "No return values allowed"], answer: "C"},
+            {id: 7, question: "What syntax is used to accept a variable number of arguments in a Go function?", options: ["*args", "...args", "&args", "[]args"], answer: "B"},
+            {id: 8, question: "What is a closure in Go?", options: ["A way to close files", "A function that references variables from outside its body", "A closed struct", "A terminated goroutine"], answer: "B"},
+            {id: 9, question: "In Go, does a type need to explicitly declare that it implements an interface?", options: ["Yes, using the \"implements\" keyword", "No, it's implicit - just implement the methods", "Yes, using the \"interface\" keyword", "Only for exported interfaces"], answer: "B"},
+            {id: 10, question: "Which receiver type should be used when a method needs to modify the struct?", options: ["Value receiver", "Pointer receiver", "Reference receiver", "Interface receiver"], answer: "B"},
+            {id: 11, question: "What is the default value of an uninitialized string in Go?", options: ["null", "\"\"", "undefined", "0"], answer: "B"},
+            {id: 12, question: "Which data type is an alias for int32 in Go?", options: ["byte", "rune", "char", "unicode"], answer: "B"},
+            {id: 13, question: "Can you use the short declaration operator := at package level?", options: ["Yes, always", "No, only inside functions", "Only for constants", "Only for exported variables"], answer: "B"},
+            {id: 14, question: "What is the zero value of an int in Go?", options: ["null", "undefined", "0", "-1"], answer: "C"},
+            {id: 15, question: "Which of these is NOT a valid data type in Go?", options: ["int", "float", "bool", "string"], answer: "B"},
+            {id: 16, question: "What happens if you try to modify a constant in Go?", options: ["Runtime error", "Compile error", "Silent failure", "Warning only"], answer: "B"},
+            {id: 17, question: "How do you create a multi-line string in Go?", options: ["Using backticks `", "Using triple quotes \"\"\"", "Using \\n", "Go doesn't support multi-line strings"], answer: "A"},
+            {id: 18, question: "What is the maximum value of uint8?", options: ["127", "255", "256", "65535"], answer: "B"},
+            {id: 19, question: "Can you have multiple variables with different types in one var declaration?", options: ["Yes, always", "No, never", "Only if they're exported", "Only at package level"], answer: "B"},
+            {id: 20, question: "What does the blank identifier _ do in Go?", options: ["Creates a null value", "Ignores a value", "Creates a default value", "Throws an error"], answer: "B"},
+            {id: 21, question: "Which statement about Go's if statement is true?", options: ["Parentheses around condition are required", "Braces are optional for single statements", "Can include a short statement before condition", "All of the above"], answer: "C"},
+            {id: 22, question: "What is the default case in a switch statement called?", options: ["else", "default", "otherwise", "catch"], answer: "B"},
+            {id: 23, question: "Can you declare variables in the initialization part of a for loop?", options: ["Yes", "No", "Only integers", "Only with var keyword"], answer: "A"},
+            {id: 24, question: "How do you create an infinite loop in Go?", options: ["for { }", "while(true)", "loop { }", "repeat { }"], answer: "A"},
+            {id: 25, question: "What does the continue statement do?", options: ["Exits the loop", "Skips to next iteration", "Restarts the loop", "Pauses execution"], answer: "B"},
+            {id: 26, question: "Can a switch statement in Go have no expression?", options: ["Yes, it acts like if-else", "No, expression is required", "Only for integers", "Only at package level"], answer: "A"},
+            {id: 27, question: "What keyword is used to exit a loop early?", options: ["exit", "break", "return", "stop"], answer: "B"},
+            {id: 28, question: "Can you use range with strings?", options: ["Yes", "No", "Only ASCII strings", "Only with []byte conversion"], answer: "A"},
+            {id: 29, question: "What does the range keyword return when used with a slice?", options: ["Value only", "Index only", "Index and value", "Length and value"], answer: "C"},
+            {id: 30, question: "How many initialization statements can a for loop have?", options: ["None", "One", "Multiple separated by commas", "Unlimited"], answer: "B"},
+            {id: 31, question: "What is the correct syntax for a function that returns multiple values?", options: ["func f() int, error", "func f() (int, error)", "func f() [int, error]", "func f() {int, error}"], answer: "B"},
+            {id: 32, question: "Can Go functions be assigned to variables?", options: ["Yes", "No", "Only named functions", "Only anonymous functions"], answer: "A"},
+            {id: 33, question: "What is a naked return?", options: ["Return without parentheses", "Return with named return values", "Return nil", "Return without a value"], answer: "B"},
+            {id: 34, question: "Can you have default parameter values in Go functions?", options: ["Yes", "No", "Only for the last parameter", "Only for exported functions"], answer: "B"},
+            {id: 35, question: "What is the correct way to define a variadic function?", options: ["func sum(nums *int)", "func sum(nums ...int)", "func sum(nums []int)", "func sum(nums &int)"], answer: "B"},
+            {id: 36, question: "Can an anonymous function access variables from its enclosing scope?", options: ["Yes, it's a closure", "No, never", "Only if they're global", "Only with pointers"], answer: "A"},
+            {id: 37, question: "Where must variadic parameters be placed in a function signature?", options: ["First", "Last", "Anywhere", "Second"], answer: "B"},
+            {id: 38, question: "Can you return a function from another function in Go?", options: ["Yes", "No", "Only if it's exported", "Only anonymous functions"], answer: "A"},
+            {id: 39, question: "What happens if you don't return a value from a function that expects one?", options: ["Returns zero value", "Compile error", "Runtime error", "Returns nil"], answer: "B"},
+            {id: 40, question: "Can you use the defer keyword to delay function execution?", options: ["Yes", "No", "Only for cleanup", "Only in main()"], answer: "A"},
+            {id: 41, question: "What is the correct way to define a struct?", options: ["struct Person { }", "type Person struct { }", "Person := struct { }", "class Person { }"], answer: "B"},
+            {id: 42, question: "Can structs have methods in Go?", options: ["Yes", "No", "Only exported structs", "Only with interfaces"], answer: "A"},
+            {id: 43, question: "What is the difference between value and pointer receivers?", options: ["No difference", "Pointer receivers can modify the struct", "Value receivers are faster", "Pointer receivers are deprecated"], answer: "B"},
+            {id: 44, question: "Can you create an instance of a struct without the new keyword?", options: ["Yes", "No", "Only for small structs", "Only with var"], answer: "A"},
+            {id: 45, question: "What is struct embedding?", options: ["Nesting structs", "A form of composition", "Inheritance", "Interface implementation"], answer: "B"},
+            {id: 46, question: "Can an interface have fields?", options: ["Yes", "No, only methods", "Only constants", "Only private fields"], answer: "B"},
+            {id: 47, question: "How does a type implement an interface in Go?", options: ["Using implements keyword", "Implicitly by implementing methods", "Using extends keyword", "Must be declared in the interface"], answer: "B"},
+            {id: 48, question: "Can an interface be nil?", options: ["Yes", "No", "Only empty interfaces", "Only if not implemented"], answer: "A"},
+            {id: 49, question: "What is an empty interface?", options: ["interface{}", "An interface with no methods", "Both A and B", "An unimplemented interface"], answer: "C"},
+            {id: 50, question: "Can you embed interfaces in other interfaces?", options: ["Yes", "No", "Only standard library interfaces", "Only in the same package"], answer: "A"},
+            {id: 51, question: "What is the purpose of the make() function?", options: ["Create structs", "Create slices, maps, and channels", "Create interfaces", "Create constants"], answer: "B"},
+            {id: 52, question: "How do you create a slice in Go?", options: ["var s []int", "s := make([]int, 0)", "s := []int{}", "All of the above"], answer: "D"},
+            {id: 53, question: "What is the difference between len() and cap() for slices?", options: ["No difference", "len is current length, cap is capacity", "len for arrays, cap for slices", "cap is deprecated"], answer: "B"},
+            {id: 54, question: "Can you append to a nil slice?", options: ["Yes", "No", "Only with make()", "Causes panic"], answer: "A"},
+            {id: 55, question: "How do you create a map in Go?", options: ["var m map[string]int", "m := make(map[string]int)", "m := map[string]int{}", "Both B and C"], answer: "D"},
+            {id: 56, question: "What happens when you access a non-existent key in a map?", options: ["Panic", "Returns zero value", "Returns nil", "Compile error"], answer: "B"},
+            {id: 57, question: "How do you delete a key from a map?", options: ["delete(map, key)", "map.delete(key)", "remove(map, key)", "map[key] = nil"], answer: "A"},
+            {id: 58, question: "Are maps safe for concurrent access?", options: ["Yes", "No", "Only with sync.Map", "Only read operations"], answer: "B"},
+            {id: 59, question: "What is the zero value of a slice?", options: ["Empty slice", "nil", "[]", "0"], answer: "B"},
+            {id: 60, question: "Can you compare two slices with ==?", options: ["Yes", "No, use reflect.DeepEqual", "Only if they're the same length", "Only integer slices"], answer: "B"},
+            {id: 61, question: "What is a goroutine?", options: ["A lightweight thread", "A function", "A channel", "A package"], answer: "A"},
+            {id: 62, question: "How do you start a goroutine?", options: ["goroutine func()", "go func()", "async func()", "start func()"], answer: "B"},
+            {id: 63, question: "What is a channel used for?", options: ["Communication between goroutines", "Storing data", "Error handling", "Type conversion"], answer: "A"},
+            {id: 64, question: "How do you create an unbuffered channel?", options: ["make(chan int)", "make(chan int, 0)", "Both A and B", "chan int{}"], answer: "C"},
+            {id: 65, question: "What does the <- operator do with channels?", options: ["Send or receive", "Compare", "Close", "Create"], answer: "A"},
+            {id: 66, question: "Can you close a channel?", options: ["Yes, with close()", "No", "Only buffered channels", "Only by garbage collector"], answer: "A"},
+            {id: 67, question: "What is the select statement used for?", options: ["Choosing types", "Multiplexing channel operations", "Loop iteration", "Error handling"], answer: "B"},
+            {id: 68, question: "Can you receive from a closed channel?", options: ["Yes, gets zero value", "No, causes panic", "Only if buffered", "Compile error"], answer: "A"},
+            {id: 69, question: "What happens when you send to a closed channel?", options: ["Nothing", "Returns false", "Panic", "Blocks forever"], answer: "C"},
+            {id: 70, question: "How do you create a buffered channel?", options: ["make(chan int, 10)", "chan int[10]", "buffer(chan int, 10)", "make(chan int).buffer(10)"], answer: "A"},
+            {id: 71, question: "What package is used for file operations?", options: ["file", "io", "os", "fs"], answer: "C"},
+            {id: 72, question: "How do you read a file in Go?", options: ["os.ReadFile()", "ioutil.ReadFile()", "Both A and B", "file.Read()"], answer: "C"},
+            {id: 73, question: "What is the defer keyword used for?", options: ["Delay execution", "Schedule cleanup", "Both A and B", "Error handling"], answer: "C"},
+            {id: 74, question: "In what order are deferred functions executed?", options: ["FIFO", "LIFO", "Random", "Parallel"], answer: "B"},
+            {id: 75, question: "Can you defer multiple function calls?", options: ["Yes", "No", "Only in main()", "Maximum 3"], answer: "A"},
+            {id: 76, question: "What is panic used for?", options: ["Regular errors", "Unrecoverable errors", "Warnings", "Logging"], answer: "B"},
+            {id: 77, question: "How do you recover from a panic?", options: ["try-catch", "recover()", "catch()", "rescue()"], answer: "B"},
+            {id: 78, question: "Where should recover() be called?", options: ["Anywhere", "In a deferred function", "In main()", "Before panic"], answer: "B"},
+            {id: 79, question: "What interface do errors implement?", options: ["Error", "error", "Err", "Exception"], answer: "B"},
+            {id: 80, question: "How do you create a new error?", options: ["errors.New()", "error.New()", "new Error()", "Error()"], answer: "A"},
+            {id: 81, question: "What is the correct way to format a string?", options: ["fmt.Printf()", "fmt.Sprintf()", "Both A and B", "string.Format()"], answer: "C"},
+            {id: 82, question: "What does %v do in format strings?", options: ["Prints value in default format", "Prints variable name", "Prints type", "Prints address"], answer: "A"},
+            {id: 83, question: "How do you print the type of a variable?", options: ["%t", "%T", "%type", "typeof()"], answer: "B"},
+            {id: 84, question: "What is the difference between Print and Println?", options: ["No difference", "Println adds newline", "Print is faster", "Println is deprecated"], answer: "B"},
+            {id: 85, question: "Can you use + to concatenate strings?", options: ["Yes", "No", "Only for small strings", "Deprecated"], answer: "A"},
+            {id: 86, question: "What is the strings package used for?", options: ["String manipulation", "String creation", "String comparison", "All of the above"], answer: "D"},
+            {id: 87, question: "How do you convert a string to uppercase?", options: ["strings.ToUpper()", "string.upper()", "str.toUpper()", "uppercase(str)"], answer: "A"},
+            {id: 88, question: "How do you check if a string contains a substring?", options: ["strings.Contains()", "string.includes()", "str.has()", "contains(str)"], answer: "A"},
+            {id: 89, question: "What is the init() function used for?", options: ["Initialize variables", "Package initialization", "Constructor", "Main entry point"], answer: "B"},
+            {id: 90, question: "Can a package have multiple init() functions?", options: ["Yes", "No", "Only in main package", "Maximum 2"], answer: "A"},
+            {id: 91, question: "What is the main package used for?", options: ["Libraries", "Executable programs", "Tests", "Documentation"], answer: "B"},
+            {id: 92, question: "How do you export a function from a package?", options: ["export keyword", "Capitalize first letter", "public keyword", "@ decorator"], answer: "B"},
+            {id: 93, question: "Can you import a package with a custom name?", options: ["Yes, using alias", "No", "Only standard library", "Only in main"], answer: "A"},
+            {id: 94, question: "What does the . import do?", options: ["Current directory", "Imports without prefix", "Hidden import", "Deprecated"], answer: "B"},
+            {id: 95, question: "How do you import only for side effects?", options: ["import _", "import _ \"package\"", "Both A and B", "side import"], answer: "B"},
+            {id: 96, question: "What is go mod init used for?", options: ["Initialize module", "Install packages", "Run tests", "Build project"], answer: "A"},
+            {id: 97, question: "How do you add a dependency?", options: ["go get", "npm install", "pip install", "import"], answer: "A"},
+            {id: 98, question: "What file contains module dependencies?", options: ["package.json", "go.mod", "deps.txt", "requirements.txt"], answer: "B"},
+            {id: 99, question: "How do you run tests in Go?", options: ["go test", "go run test", "test go", "go check"], answer: "A"},
+            {id: 100, question: "What is the naming convention for test files?", options: ["*_test.go", "test_*.go", "*.test.go", "*Test.go"], answer: "A"}
+        ];
+
+        // Fisher-Yates shuffle algorithm
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        // Start the countdown timer
+        function startTimer() {
+            quizSession.remainingSeconds = 30;
+            updateTimerDisplay();
+            
+            quizSession.timerId = setInterval(() => {
+                quizSession.remainingSeconds--;
+                updateTimerDisplay();
+                
+                if (quizSession.remainingSeconds <= 0) {
+                    stopTimer();
+                    autoSubmitQuiz();
+                }
+            }, 1000);
+        }
+
+        // Stop the timer
+        function stopTimer() {
+            if (quizSession.timerId) {
+                clearInterval(quizSession.timerId);
+                quizSession.timerId = null;
+            }
+        }
+
+        // Update timer display
+        function updateTimerDisplay() {
+            const timerElement = document.getElementById('timer-display');
+            timerElement.textContent = quizSession.remainingSeconds;
+            
+            if (quizSession.remainingSeconds <= 10) {
+                timerElement.style.background = 'linear-gradient(135deg, #f5576c 0%, #d32f2f 100%)';
+                timerElement.style.animation = 'pulse 1s infinite';
+            }
+        }
+
+        // Render questions dynamically
+        function renderQuestions() {
+            const container = document.getElementById('quiz-questions-container');
+            container.innerHTML = '';
+            
+            quizSession.questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-question';
+                
+                let optionsHTML = '';
+                q.options.forEach((option, optIndex) => {
+                    const letter = String.fromCharCode(65 + optIndex);
+                    optionsHTML += `
+                        <li>
+                            <label>
+                                <input type="radio" name="q${index}" value="${letter}">
+                                ${letter}) ${option}
+                            </label>
+                        </li>
+                    `;
+                });
+                
+                questionDiv.innerHTML = `
+                    <h3>${index + 1}. ${q.question}</h3>
+                    <ul class="quiz-options">
+                        ${optionsHTML}
+                    </ul>
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
 
         function showLesson(index) {
             // Hide quiz section
@@ -1299,6 +1367,9 @@ func main() {
         }
 
         function startQuiz() {
+            // Stop any existing timer
+            stopTimer();
+            
             // Hide all lessons
             const lessons = document.querySelectorAll('.lesson');
             lessons.forEach(lesson => lesson.classList.remove('active'));
@@ -1310,45 +1381,59 @@ func main() {
             // Show quiz section
             document.getElementById('quiz-section').classList.add('active');
 
-            // Reset quiz
-            document.getElementById('quiz-form').reset();
+            // Select 10 random questions
+            const shuffled = shuffleArray(questionBank);
+            quizSession.questions = shuffled.slice(0, 10);
+            quizSession.isActive = true;
+
+            // Render questions
+            renderQuestions();
+
+            // Reset and hide results
             document.getElementById('quiz-results').classList.remove('show');
+
+            // Start timer
+            startTimer();
 
             // Scroll to top
             document.querySelector('.main-content').scrollTop = 0;
         }
 
-        function submitQuiz() {
+        function submitQuiz(isAutoSubmit = false) {
+            // Stop timer
+            stopTimer();
+            quizSession.isActive = false;
+            
             const form = document.getElementById('quiz-form');
             let score = 0;
-            let totalQuestions = Object.keys(correctAnswers).length;
+            const totalQuestions = quizSession.questions.length;
             const results = [];
 
             // Check each answer
-            for (let question in correctAnswers) {
-                const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`);
+            quizSession.questions.forEach((q, index) => {
+                const selectedAnswer = form.querySelector(`input[name="q${index}"]:checked`);
                 
                 if (selectedAnswer) {
-                    const isCorrect = selectedAnswer.value === correctAnswers[question];
+                    const isCorrect = selectedAnswer.value === q.answer;
                     if (isCorrect) {
                         score++;
                     }
                     
                     results.push({
-                        question: questionTexts[question],
+                        question: q.question,
                         userAnswer: selectedAnswer.value,
-                        correctAnswer: correctAnswers[question],
+                        correctAnswer: q.answer,
                         isCorrect: isCorrect
                     });
                 } else {
                     results.push({
-                        question: questionTexts[question],
+                        question: q.question,
                         userAnswer: 'Not answered',
-                        correctAnswer: correctAnswers[question],
+                        correctAnswer: q.answer,
                         isCorrect: false
                     });
                 }
-            }
+            });
 
             // Calculate percentage
             const percentage = Math.round((score / totalQuestions) * 100);
@@ -1357,14 +1442,18 @@ func main() {
             document.getElementById('score-percentage').textContent = `${percentage}%`;
             
             let message = '';
+            if (isAutoSubmit) {
+                message = "Time's up! ⏰ ";
+            }
+            
             if (percentage === 100) {
-                message = 'Perfect Score! You\'re a Go expert! 🎉';
+                message += 'Perfect Score! You\'re a Go expert! 🎉';
             } else if (percentage >= 80) {
-                message = 'Excellent work! You have a strong understanding of Go! 👏';
+                message += 'Excellent work! You have a strong understanding of Go! 👏';
             } else if (percentage >= 60) {
-                message = 'Good job! Keep practicing to master Go! 💪';
+                message += 'Good job! Keep practicing to master Go! 💪';
             } else {
-                message = 'Keep learning! Review the lessons and try again! 📚';
+                message += 'Keep learning! Review the lessons and try again! 📚';
             }
             
             document.getElementById('score-message').textContent = message;
@@ -1395,13 +1484,17 @@ func main() {
             }, 100);
         }
 
+        function autoSubmitQuiz() {
+            submitQuiz(true);
+        }
+
         function retryQuiz() {
-            document.getElementById('quiz-form').reset();
-            document.getElementById('quiz-results').classList.remove('show');
-            document.querySelector('.main-content').scrollTop = 0;
+            startQuiz();
         }
 
         function backToLessons() {
+            stopTimer();
+            quizSession.isActive = false;
             showLesson(0);
         }
 
