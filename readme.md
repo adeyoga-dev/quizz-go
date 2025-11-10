@@ -92,4 +92,4 @@ Access at: http://0.0.0.0:5000
 - Progressive learning path from basics to advanced concepts
 - Practical code examples for hands-on learning
 
-# Build from Replit
+# Build with Replit
